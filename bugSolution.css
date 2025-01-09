@@ -1,0 +1,28 @@
+To fix this, increase the specificity of the intended style (red or green). You can achieve this by adding an extra class to the list items themselves, using more specific selectors, or ordering your rules more carefully:
+
+```css
+li {
+  color: blue; /* Fallback color */
+}
+
+.special-list li {
+  color: red; /* More specific than the earlier li selector */
+}
+
+.another-class li {
+    color: green; /* More specific than the earlier li selector */
+}
+
+/*OR*/
+
+li.special-item {
+    color: red;
+}
+
+<ul class="special-list another-class">
+  <li class="special-item">Item 1</li>
+  <li class="special-item">Item 2</li>
+</ul>
+```
+
+The addition of the `special-item` class increases the specificity so that the `li.special-item` selector is more specific and overrides the other styles.
