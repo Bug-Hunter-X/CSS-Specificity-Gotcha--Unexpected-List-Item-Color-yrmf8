@@ -1,0 +1,22 @@
+The following CSS code snippet intends to style a list item, but it suffers from specificity issues:
+
+```css
+li {
+  color: blue;
+}
+
+.special-list li {
+  color: red;
+}
+
+.another-class li {
+    color: green;
+}
+
+<ul class="special-list another-class">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+```
+
+The unexpected behavior is that the list items remain blue, instead of red or green as might be expected given the more specific selectors. This is because the class selectors `.special-list` and `.another-class` have equal specificity to the `li` selector, but the `li` selector is declared earlier and thus takes precedence.  While not strictly an *error* in the sense of a syntax mistake, it's a common misunderstanding of CSS specificity.
